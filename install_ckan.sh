@@ -38,7 +38,8 @@ virtualenv "$venv_dir"
 cd "$venv_dir"
 . "$venv_dir/bin/activate"
 
-# Upgrade pip because it's upgrade warnings are annoying
+# Upgrade pip because it's upgrade warnings are annoying and the
+# system one is usually out-of-date
 pip install --upgrade pip
 
 # Install CKAN
@@ -92,6 +93,8 @@ sed -i -- "s|ckan\.site_url\s*=.*$|ckan.site_url = http://$SITE_ID.dev|g" "$conf
 sed -i -- "s|ckan\.site_id\s*=.*$|ckan.site_id = $SITE_ID|g" "$config_file"
 sed -i -- "s|#solr_url.*$|solr_url = http://127.0.0.1:8983/solr/$SITE_ID|g" "$config_file"
 sed -i -- "s|sqlalchemy\.url\s*=.*$|sqlalchemy.url = postgresql://$DB_USER:$DB_PASS@localhost/ckan_$SITE_ID|g" "$config_file"
+
+# TODO: set ckan.root_path in ini file
 
 echo "Linking who.ini ..."
 ln -snf "$venv_dir/src/ckan/ckan/config/who.ini" "$config_dir/who.ini"
