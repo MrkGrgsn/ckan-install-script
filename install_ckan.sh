@@ -22,7 +22,7 @@ DB_USER="ckan_default"
 DB_PASS="pass"
 
 SOLR_SERVER_DIR="/var/solr/data"
-SOLR_INSTALL_DIR="/usr/lib/solr-5.4.1"
+SOLR_INSTALL_DIR="/opt/solr"
 
 venv_dir="/usr/lib/ckan/$SITE_ID"
 
