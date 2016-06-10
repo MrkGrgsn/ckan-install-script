@@ -121,6 +121,7 @@ cd "$venv_dir/src/ckan"
 paster db init -c "$config_file"
 
 # Fix permissions
+chown -R "$USER.$GROUP" "$venv_dir"
 chmod -R g+ws "$venv_dir"
 
 # cleanup
