@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#dnf install python-devel python-pip libpqxx-devel python-pip python-virtualenv git-core
-
 # Assumptions:
 # - System is CentOS7/RHEL7/Fedora whatever (tested on Fedora 22)
 # - System packages are installed
@@ -55,7 +53,6 @@ deactivate
 echo "Creating PostgreSQL DB ... "
 
 # Assumes ckan_default user exists already
-#sudo -u postgres createuser -S -D -R -P "ckan_$SITE_ID"
 sudo -u postgres createdb -O ckan_default "ckan_$SITE_ID" -E utf-8
 
 # Config
